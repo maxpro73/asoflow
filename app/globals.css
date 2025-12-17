@@ -1,0 +1,382 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.98 0.001 0);
+  --foreground: oklch(0.16 0.005 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.005 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.005 0);
+  --primary: oklch(0.48 0.14 256);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.48 0.14 256);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.93 0.008 0);
+  --muted-foreground: oklch(0.57 0.008 0);
+  --accent: oklch(0.52 0.16 142);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.58 0.25 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.008 0);
+  --input: oklch(0.92 0.008 0);
+  --ring: oklch(0.48 0.14 256);
+  --chart-1: oklch(0.48 0.14 256);
+  --chart-2: oklch(0.52 0.16 142);
+  --chart-3: oklch(0.58 0.25 27);
+  --chart-4: oklch(0.75 0.15 56);
+  --chart-5: oklch(0.67 0.12 316);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.98 0.001 0);
+  --sidebar-foreground: oklch(0.16 0.005 0);
+  --sidebar-primary: oklch(0.48 0.14 256);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.93 0.008 0);
+  --sidebar-accent-foreground: oklch(0.48 0.14 256);
+  --sidebar-border: oklch(0.92 0.008 0);
+  --sidebar-ring: oklch(0.48 0.14 256);
+  --success: oklch(0.52 0.16 142);
+  --warning: oklch(0.75 0.15 56);
+  --danger: oklch(0.58 0.25 27);
+}
+
+.dark {
+  --background: oklch(0.12 0.006 0);
+  --foreground: oklch(0.95 0.002 0);
+  --card: oklch(0.18 0.006 0);
+  --card-foreground: oklch(0.95 0.002 0);
+  --popover: oklch(0.18 0.006 0);
+  --popover-foreground: oklch(0.95 0.002 0);
+  --primary: oklch(0.7 0.11 256);
+  --primary-foreground: oklch(0.12 0.006 0);
+  --secondary: oklch(0.7 0.11 256);
+  --secondary-foreground: oklch(0.12 0.006 0);
+  --muted: oklch(0.35 0.008 0);
+  --muted-foreground: oklch(0.75 0.008 0);
+  --accent: oklch(0.65 0.12 142);
+  --accent-foreground: oklch(0.12 0.006 0);
+  --destructive: oklch(0.65 0.22 27);
+  --destructive-foreground: oklch(0.95 0.002 0);
+  --border: oklch(0.28 0.008 0);
+  --input: oklch(0.28 0.008 0);
+  --ring: oklch(0.7 0.11 256);
+  --chart-1: oklch(0.7 0.11 256);
+  --chart-2: oklch(0.65 0.12 142);
+  --chart-3: oklch(0.65 0.22 27);
+  --chart-4: oklch(0.8 0.12 56);
+  --chart-5: oklch(0.75 0.1 316);
+  --sidebar: oklch(0.15 0.006 0);
+  --sidebar-foreground: oklch(0.95 0.002 0);
+  --sidebar-primary: oklch(0.7 0.11 256);
+  --sidebar-primary-foreground: oklch(0.95 0.002 0);
+  --sidebar-accent: oklch(0.35 0.008 0);
+  --sidebar-accent-foreground: oklch(0.7 0.11 256);
+  --sidebar-border: oklch(0.28 0.008 0);
+  --sidebar-ring: oklch(0.7 0.11 256);
+  --success: oklch(0.65 0.12 142);
+  --warning: oklch(0.8 0.12 56);
+  --danger: oklch(0.65 0.22 27);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ========================================
+   🔥 CORREÇÕES MOBILE ASOFLOW
+   ======================================== */
+
+@layer utilities {
+  /* Corrigir sobreposição de labels em modais */
+  @media (max-width: 768px) {
+    /* Labels de formulário sempre em bloco */
+    .modal label,
+    [role="dialog"] label,
+    [class*="Modal"] label,
+    [class*="modal"] label {
+      display: block !important;
+      margin-bottom: 0.5rem !important;
+      white-space: normal !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      width: 100% !important;
+    }
+
+    /* Inputs e selects sempre em largura total */
+    .modal input,
+    .modal select,
+    .modal textarea,
+    [role="dialog"] input,
+    [role="dialog"] select,
+    [role="dialog"] textarea,
+    [class*="Modal"] input,
+    [class*="Modal"] select,
+    [class*="Modal"] textarea,
+    [class*="modal"] input,
+    [class*="modal"] select,
+    [class*="modal"] textarea {
+      width: 100% !important;
+      display: block !important;
+      margin-top: 0.25rem !important;
+      margin-bottom: 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Forçar wrap de texto */
+    .modal *,
+    [role="dialog"] *,
+    [class*="Modal"] *,
+    [class*="modal"] * {
+      white-space: normal !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+
+    /* Espaçamento entre campos */
+    .modal > div > div,
+    [role="dialog"] > div > div,
+    [class*="Modal"] > div > div {
+      margin-bottom: 1rem !important;
+    }
+
+    /* Grid vira coluna única */
+    .modal .grid,
+    .modal [class*="grid-cols"],
+    [role="dialog"] .grid,
+    [role="dialog"] [class*="grid-cols"],
+    [class*="Modal"] .grid,
+    [class*="Modal"] [class*="grid-cols"] {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+    }
+
+    /* Botões em coluna no mobile */
+    .modal .flex.gap-3,
+    .modal .flex.gap-4,
+    [role="dialog"] .flex.gap-3,
+    [role="dialog"] .flex.gap-4 {
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+    }
+
+    .modal .flex.gap-3 button,
+    .modal .flex.gap-4 button,
+    [role="dialog"] .flex.gap-3 button,
+    [role="dialog"] .flex.gap-4 button {
+      width: 100% !important;
+    }
+
+    /* Títulos de seção */
+    .modal h1,
+    .modal h2,
+    .modal h3,
+    .modal h4,
+    [role="dialog"] h1,
+    [role="dialog"] h2,
+    [role="dialog"] h3,
+    [role="dialog"] h4 {
+      margin-top: 1.5rem !important;
+      margin-bottom: 0.75rem !important;
+      display: block !important;
+      width: 100% !important;
+    }
+
+    /* Primeiro título sem margem top */
+    .modal h1:first-child,
+    .modal h2:first-child,
+    .modal h3:first-child,
+    [role="dialog"] h1:first-child,
+    [role="dialog"] h2:first-child,
+    [role="dialog"] h3:first-child {
+      margin-top: 0 !important;
+    }
+
+    /* Overflow e scroll em modais */
+    .modal,
+    [role="dialog"],
+    [class*="Modal"],
+    [class*="modal"] {
+      max-height: 90vh !important;
+      overflow-y: auto !important;
+    }
+
+    /* Container interno do modal */
+    .modal > div:first-child,
+    [role="dialog"] > div:first-child {
+      max-height: 85vh !important;
+      overflow-y: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Z-index correto para modais */
+    [class*="fixed"][class*="inset-0"][class*="flex"] {
+      z-index: 100 !important;
+    }
+
+    /* Backdrop de modais */
+    [class*="fixed"][class*="inset-0"][class*="bg-black"] {
+      z-index: 99 !important;
+    }
+
+    /* Modal content container */
+    [class*="bg-white"][class*="rounded-lg"][class*="max-w"] {
+      max-height: 90vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Modal scrollable content */
+    [class*="overflow-y-auto"][class*="max-h"] {
+      flex: 1 !important;
+      overflow-y: auto !important;
+    }
+  }
+
+  /* Melhorias gerais de UX mobile */
+  @media (max-width: 768px) {
+    /* Aumentar área de toque */
+    button,
+    [role="button"],
+    a[class*="button"] {
+      min-height: 44px !important;
+      padding-top: 0.75rem !important;
+      padding-bottom: 0.75rem !important;
+    }
+
+    /* Prevenir zoom em inputs */
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+
+    /* Scroll suave */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Webkit font smoothing */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+
+  /* Correções específicas para campos de formulário lado a lado */
+  @media (max-width: 768px) {
+    /* Força div de campo de formulário a ser flex column */
+    form > div,
+    form > div > div,
+    .space-y-4 > div,
+    .space-y-6 > div {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Labels sempre acima dos inputs */
+    label + input,
+    label + select,
+    label + textarea {
+      margin-top: 0.25rem !important;
+    }
+
+    /* Remove float de labels */
+    label {
+      float: none !important;
+      position: static !important;
+    }
+
+    /* Remove position absolute de inputs */
+    input,
+    select,
+    textarea {
+      position: static !important;
+    }
+  }
+
+  /* Correção para abas/tabs responsivas */
+  @media (max-width: 768px) {
+    [role="tablist"],
+    .tabs,
+    [class*="border-b"] > [class*="flex"] {
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: thin;
+    }
+
+    [role="tablist"]::-webkit-scrollbar,
+    .tabs::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    [role="tablist"]::-webkit-scrollbar-thumb,
+    .tabs::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+    }
+  }
+
+  /* Safe area para notch/island */
+  @supports (padding: max(0px)) {
+    .safe-area-bottom {
+      padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+    }
+
+    .safe-area-top {
+      padding-top: max(0px, env(safe-area-inset-top));
+    }
+  }
+}
